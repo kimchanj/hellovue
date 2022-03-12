@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Vue Sample</title>
+    </head>
+    <body>
+        <div id="appVue">
+            {{ message }}
+        </div>
+
+        <div id="appVue2">
+            <span v-bind:title="message">
+                내 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!
+            </span>
+        </div>
+
+        <div id="appVue3">
+            <p v-if="seen">이제 나를 볼 수 있어요</p>
+        </div>
+
+        <div id="appVue4">
+            <ol>
+                <li v-for='todo in todos'>
+                    {{ todo.text }}
+                </li>
+            </ol>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+       var appVue1 = new Vue({
+            el:'#appVue',
+            data: {
+                message:'Hello Vuejs'
+            }
+        });
+
+        var appVue2 = new Vue({
+            el:'#appVue2',
+            data: {
+                message: '이 페이지는 ' + new Date() + ' 에 로드 되었습니다'               
+            }
+        });
+
+        var appVue3 = new Vue({
+            el:'#appVue3',
+            data: {
+                seen: true
+            }
+        });
+
+       var appVue4 = new Vue({
+            el:'#appVue4',
+            data: {
+                todos: [
+                    { text: 'todo1 item'},
+                    { text: 'todo2 item'},
+                    { text: 'todo3 item'},
+                    { text: 'todo4 item'}
+                ]
+            }
+        });
+    </script>
+</html>
